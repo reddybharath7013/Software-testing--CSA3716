@@ -1,0 +1,35 @@
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+class RailwaySystem {
+
+    private int seats = 5;
+
+    public boolean bookTicket(int count) {
+        if (count <= seats) {
+            seats -= count;
+            return true;
+        }
+        return false;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+}
+
+public class RailwayTest {
+
+    @Test
+    public void testBooking() {
+        RailwaySystem rs = new RailwaySystem();
+        assertTrue(rs.bookTicket(2));
+        assertEquals(3, rs.getSeats());
+    }
+
+    @Test
+    public void testOverBooking() {
+        RailwaySystem rs = new RailwaySystem();
+        assertFalse(rs.bookTicket(10));
+    }
+}
