@@ -1,0 +1,33 @@
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+class MathUtils {
+
+    public static int max(int a, int b, int c) {
+        return Math.max(a, Math.max(b, c));
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+}
+
+public class MathUtilsTest {
+
+    @Test
+    public void testMax() {
+        assertEquals(9, MathUtils.max(3, 9, 5));
+    }
+
+    @Test
+    public void testPrime() {
+        assertTrue(MathUtils.isPrime(7));
+        assertFalse(MathUtils.isPrime(8));
+    }
+}
