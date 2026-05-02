@@ -1,0 +1,30 @@
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+class AuthService {
+    public boolean login(String user, String pass) {
+        return user.equals("admin") && pass.equals("1234");
+    }
+}
+
+class DataService {
+    public String processData() {
+        return "Data Processed";
+    }
+}
+
+public class IntegrationTest {
+
+    @Test
+    public void testLoginAndProcess() {
+        AuthService auth = new AuthService();
+        DataService data = new DataService();
+
+        if (auth.login("admin", "1234")) {
+            String result = data.processData();
+            assertEquals("Data Processed", result);
+        } else {
+            fail("Login Failed");
+        }
+    }
+}
