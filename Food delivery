@@ -1,0 +1,19 @@
+class FoodDeliveryTest {
+
+    public static void main(String[] args) {
+
+        String username = "Anjan";
+        String password = "12345";
+
+        if(username.equals("Anjan") && password.equals("12345")) {
+            System.out.println("Login Successful");
+        } else {
+            System.out.println("Login Failed");
+        }
+
+        String food = "Pizza";
+        System.out.println(food + " added to cart");
+
+        System.out.println("Order placed successfully");
+    }
+}
